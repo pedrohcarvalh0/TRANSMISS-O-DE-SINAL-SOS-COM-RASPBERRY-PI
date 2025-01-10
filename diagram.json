@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "author": "Pedro Henrique Carvalho Felix",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": -80.05,
+        "left": -6.05,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": -42, "left": -149.8, "attrs": { "color": "green" } },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 62.4,
+        "left": -163.75,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "led1:C", "r1:1", "black", [ "v0" ] ],
+      [ "r1:2", "pico:GND.4", "black", [ "h0" ] ],
+      [ "led1:A", "pico:GP11", "red", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
